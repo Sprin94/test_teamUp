@@ -43,10 +43,10 @@ class TestEQSerializer(ModelSerializer):
 
 
 class TestSerializer(ModelSerializer):
-    eq_test = TestEQSerializer()
-    iq_test = TestIQSerializer()
+    eq_test = TestEQSerializer(read_only=True)
+    iq_test = TestIQSerializer(read_only=True)
 
     class Meta:
         model = Test
         fields = ('login', 'eq_test', 'iq_test')
-        read_only_fields = ('login', 'eq_test', 'iq_test')
+        read_only_fields = ('login',)
